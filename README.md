@@ -1,4 +1,4 @@
-# Ecosistema de Salud Unificado (ESU)
+# Ecosistema de Salud Unificado (ESU))
 > Plataforma integral B2B2C para la modernización y centralización de servicios de salud en Cruz del Eje.
 
 <p align="center">
