@@ -1,6 +1,13 @@
 # Ecosistema de Salud Unificado (ESU)
 > Plataforma integral B2B2C para la modernización y centralización de servicios de salud en Cruz del Eje.
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Estado-En_desarrollo-orange" alt="Estado">
+  <img src="https://img.shields.io/badge/Backend-Java_--_Spring_Boot-green" alt="Backend">
+  <img src="https://img.shields.io/badge/Frontend-HTML_--_CSS_--_JS_--_React-blue" alt="Frontend">
+  <img src="https://img.shields.io/badge/Database-MySQL-gray" alt="Database">
+</p>
+
 ---
 
 ## Tabla de Contenidos
@@ -24,18 +31,16 @@ El **Ecosistema de Salud Unificado (ESU)** nace para resolver la fragmentación 
 ---
 
 ## Arquitectura y Tecnologías
-El sistema utiliza una arquitectura moderna basada en microservicios y BaaS (Backend as a Service) para garantizar escalabilidad y seguridad.
-
-
 El sistema está desarrollado bajo una arquitectura cliente-servidor robusta, priorizando la modularidad, la seguridad de los datos médicos y la escalabilidad del sistema:
 
 | Capa | Tecnología | Función |
 | :--- | :--- | :--- |
-| **Frontend** | HTML5 + CSS3 + JavaScript (react)| Interfaz de usuario estructurada, adaptativa y reactiva. |
+| **Frontend** | HTML5 + CSS3 + JavaScript (React) | Interfaz de usuario estructurada, adaptativa y reactiva. |
 | **Backend** | Java + Spring Boot | Motor de la API REST, lógica de negocio y control de accesos. |
 | **Base de Datos** | MySQL | Persistencia de datos mediante un modelo relacional sólido. |
 | **Persistencia / ORM** | JPA + Hibernate | Mapeo de entidades orientadas a objetos y gestión de consultas. |
 | **Seguridad** | Spring Security / Filtros de Servidor | Autenticación, control de sesiones y restricción de accesos por Roles (Paciente/Médico). |
+
 ---
 
 ## Perfiles y Funcionalidades
@@ -57,10 +62,10 @@ El sistema está desarrollado bajo una arquitectura cliente-servidor robusta, pr
 ---
 
 ## Flujo de Funcionamiento
-1. **Interacción:** El usuario realiza una acción en el Frontend (React).
-2. **Procesamiento:** La solicitud viaja al Backend (Supabase/Node.js) para validación de reglas de negocio.
-3. **Persistencia:** Se consulta o actualiza la base de datos PostgreSQL cumpliendo con estándares HL7/FHIR.
-4. **Respuesta:** El servidor devuelve la información procesada y la interfaz se actualiza sin recargar la página.
+1. **Interacción:** El usuario realiza una acción en la interfaz web Frontend (React).
+2. **Procesamiento:** La solicitud viaja al Backend (Java + Spring Boot) para la validación de reglas de negocio a través de controladores y endpoints de la API REST.
+3. **Persistencia:** Se consulta o actualiza la base de datos MySQL local mediante la capa relacional controlada de forma segura por JPA e Hibernate.
+4. **Respuesta:** El servidor devuelve la información procesada en formato JSON/Objetos y la interfaz visual se actualiza de manera reactiva en el navegador sin recargar la página.
 
 ---
 
@@ -87,7 +92,7 @@ Este proyecto se rige por los estándares del **PMI (Project Management Institut
 - [ ] Módulo inicial de Historia Clínica Única (HCU) y sincronización de agendas profesionales.
 
 ### Fase 3: Ecosistema Completo e Interfaz Web
-- [ ] Acoplamiento de la interfaz gráfica adaptativa mediante plantillas estáticas (HTML5, CSS3, JavaScript).
+- [ ] Acoplamiento de la interfaz gráfica adaptativa consumiendo la API REST (HTML5, CSS3, JavaScript, React).
 - [ ] Receta electrónica interoperable con firma digital y codificación única por código QR.
 - [ ] Integración de un directorio geolocalizado de cartilla médica para los habitantes de Cruz del Eje.
 
@@ -106,4 +111,4 @@ Este proyecto se rige por los estándares del **PMI (Project Management Institut
 
 * **Repositorio de Código:** [GitHub - Vértice del Olivo](https://github.com/RicardoCejas/Esu)
 * **Gestión de Proyectos (PMI):** [Documento PMI del Proyecto](https://docs.google.com/document/d/1EIj0QAYjqWMrMraBL_VO3G_roSU5otVp/edit#heading=h.zbyebere09e)
-* **Documentación Técnica:** [Carpeta de Gestión ESU en Google Drive](https://drive.google.com/drive/folders/1Fkj_hzJDNtrR1ZQJit4Ro4zfghxreBYk)
+* **Documentación Técnica:** [Carpeta de Gestión ESU en Google Drive](https://drive.google.com/drive/folders/1Fkj_hzJDNtrR1ZQJit4Ro4zfghxreBYk)[source: 1]
