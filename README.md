@@ -111,4 +111,4 @@ Este proyecto se rige por los estándares del **PMI (Project Management Institut
 
 * **Repositorio de Código:** [GitHub - Vértice del Olivo](https://github.com/RicardoCejas/Esu)
 * **Gestión de Proyectos (PMI):** [Documento PMI del Proyecto](https://docs.google.com/document/d/1EIj0QAYjqWMrMraBL_VO3G_roSU5otVp/edit#heading=h.zbyebere09e)
-* **Documentación Técnica:** [Carpeta de Gestión ESU en Google Drive](https://drive.google.com/drive/folders/1Fkj_hzJDNtrR1ZQJit4Ro4zfghxreBYk)[source: 1]
+* **Documentación Técnica:** [Carpeta de Gestión ESU en Google Drive](https://drive.google.com/drive/folders/1Fkj_hzJDNtrR1ZQJit4Ro4zfghxreBYk)
