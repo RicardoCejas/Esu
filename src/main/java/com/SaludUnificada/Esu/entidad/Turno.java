@@ -6,31 +6,30 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "usuario")
+@Table(name = "turno")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario {
+public class Turno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String email;
+    @Column(name = "fecha_hora", nullable = false)
+    private LocalDateTime fechaHora;
 
     @Column(nullable = false)
-    private String password;
+    private String estado;
 
-    @Column(nullable = false)
-    private String rol;
-
-    // Lado inverso de la relación con Paciente
-    @OneToOne(mappedBy = "usuario")
+    @ManyToOne
+    @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
-    // Lado inverso de la relación con Profesional
-    @OneToOne(mappedBy = "usuario")
+    @ManyToOne
+    @JoinColumn(name = "profesional_id")
     private Profesional profesional;
 }

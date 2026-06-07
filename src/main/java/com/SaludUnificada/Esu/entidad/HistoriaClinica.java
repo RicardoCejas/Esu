@@ -6,31 +6,28 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "usuario")
+@Table(name = "historia_clinica")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario {
+public class HistoriaClinica {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String email;
-
-    @Column(nullable = false)
-    private String password;
-
-    @Column(nullable = false)
-    private String rol;
+    @Column(name = "fecha_creacion", nullable = false)
+    private LocalDateTime fechaCreacion;
 
     // Lado inverso de la relación con Paciente
-    @OneToOne(mappedBy = "usuario")
+    @OneToOne(mappedBy = "historiaClinica")
     private Paciente paciente;
 
-    // Lado inverso de la relación con Profesional
-    @OneToOne(mappedBy = "usuario")
-    private Profesional profesional;
+    @PrePersist
+    protected void onCreate() {
+        fechaCreacion = LocalDateTime.now();
+    }
 }
