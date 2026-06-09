@@ -25,6 +25,12 @@ public class Turno {
     @Column(nullable = false)
     private String estado;
 
+    @Column(name = "motivo_turno")
+    private String motivoTurno;
+
+    @Column(name = "fecha_creacion")
+    private LocalDateTime fechaCreacion;
+
     @ManyToOne
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
@@ -32,4 +38,9 @@ public class Turno {
     @ManyToOne
     @JoinColumn(name = "profesional_id")
     private Profesional profesional;
+
+    @PrePersist
+    protected void onCreate() {
+        fechaCreacion = LocalDateTime.now();
+    }
 }
