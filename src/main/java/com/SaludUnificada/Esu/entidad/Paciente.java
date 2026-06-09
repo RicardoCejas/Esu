@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "paciente")
@@ -29,13 +30,19 @@ public class Paciente {
     @Column(name = "nro_afiliado", nullable = false, unique = true)
     private String nroAfiliado;
 
-    // Paciente es el dueño de la relación con Usuario (tiene la FK)
+    @Column
+    private String telefono;
+
+    @Column(name = "fecha_nacimiento")
+    private LocalDate fechaNacimiento;
+
+    @Column(name = "obra_social")
+    private String obraSocial;
+
+    @Column(name = "grupo_sanguineo")
+    private String grupoSanguineo;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_usuario", referencedColumnName = "id", nullable = false, unique = true)
     private Usuario usuario;
-
-    // Paciente es el dueño de la relación con HistoriaClinica (tiene la FK)
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_historia_clinica", referencedColumnName = "id", nullable = false, unique = true)
-    private HistoriaClinica historiaClinica;
 }

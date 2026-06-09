@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "usuario")
@@ -25,6 +26,12 @@ public class Usuario {
 
     @Column(nullable = false)
     private String rol;
+
+    @Column(name = "estado_activo")
+    private Boolean estadoActivo;
+
+    @Column(name = "fecha_alta")
+    private LocalDate fechaDeAlta;
 
     // Lado inverso de la relación con Paciente
     @OneToOne(mappedBy = "usuario")

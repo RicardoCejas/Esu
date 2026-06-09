@@ -19,15 +19,28 @@ public class HistoriaClinica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fecha_creacion", nullable = false)
-    private LocalDateTime fechaCreacion;
+    @Column
+    private String diagnostico;
 
-    // Lado inverso de la relación con Paciente
-    @OneToOne(mappedBy = "historiaClinica")
+    @Column(name = "motivo_consulta")
+    private String motivoConsulta;
+
+    @Column
+    private String tratamiento;
+
+    @Column(name = "fecha_atencion")
+    private LocalDateTime fechaAtencion;
+
+    @ManyToOne
+    @JoinColumn(name = "profesional_id")
+    private Profesional profesional;
+
+    @ManyToOne
+    @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
     @PrePersist
     protected void onCreate() {
-        fechaCreacion = LocalDateTime.now();
+        fechaAtencion = LocalDateTime.now();
     }
 }
