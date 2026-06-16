@@ -23,8 +23,17 @@ public class Profesional {
     @Column(nullable = false)
     private String nombre;
 
+    @Column(nullable = false)
+    private String apellido;
+
     @Column(nullable = false, unique = true)
     private String matricula;
+
+    @Column
+    private String telefono;
+
+    @Column(name = "estado_activo")
+    private Boolean estadoActivo;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "usuario_id", referencedColumnName = "id", unique = true)
