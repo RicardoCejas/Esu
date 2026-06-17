@@ -2,7 +2,6 @@ package com.SaludUnificada.Esu.mapper;
 
 import com.SaludUnificada.Esu.dto.request.PacienteDtoRequest;
 import com.SaludUnificada.Esu.dto.response.PacienteDtoResponse;
-import com.SaludUnificada.Esu.dto.response.PacienteResumenDto;
 import com.SaludUnificada.Esu.entidad.Paciente;
 import com.SaludUnificada.Esu.entidad.Usuario;
 import org.springframework.stereotype.Component;
@@ -41,15 +40,6 @@ public class PacienteMapper {
         if (paciente.getUsuario() != null) {
             dto.setEmail(paciente.getUsuario().getEmail());
         }
-        return dto;
-    }
-
-    public PacienteResumenDto paraResumenDto(Paciente paciente) {
-        PacienteResumenDto dto = new PacienteResumenDto();
-        dto.setId(paciente.getId());
-        dto.setNombre(paciente.getNombre());
-        dto.setApellido(paciente.getApellido());
-        dto.setDni(paciente.getDni());
         return dto;
     }
 }

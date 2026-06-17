@@ -40,7 +40,7 @@ public class HistoriaClinicaMapper {
         dto.setFechaAtencion(historia.getFechaAtencion());
 
         if (historia.getPaciente() != null) {
-            dto.setPaciente(pacienteMapper.paraResumenDto(historia.getPaciente()));
+            dto.setPaciente(pacienteMapper.paraDto(historia.getPaciente())); // Corregido: Usar paraDto
         }
 
         return dto;

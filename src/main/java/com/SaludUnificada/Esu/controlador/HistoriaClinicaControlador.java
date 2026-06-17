@@ -52,10 +52,10 @@ public class HistoriaClinicaControlador {
     }
 
     @GetMapping("/paciente/{pacienteId}")
-    public ResponseEntity<HistoriaClinicaDtoResponse> buscarPorPacienteId(@PathVariable Long pacienteId) {
+    public ResponseEntity<List<HistoriaClinicaDtoResponse>> buscarPorPacienteId(@PathVariable Long pacienteId) { // Tipo de retorno corregido
         try {
-            HistoriaClinicaDtoResponse historia = historiaClinicaServicio.buscarPorPacienteId(pacienteId);
-            return new ResponseEntity<>(historia, HttpStatus.OK);
+            List<HistoriaClinicaDtoResponse> historias = historiaClinicaServicio.buscarPorPacienteId(pacienteId); // Tipo de variable corregido
+            return new ResponseEntity<>(historias, HttpStatus.OK);
         } catch (RuntimeException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

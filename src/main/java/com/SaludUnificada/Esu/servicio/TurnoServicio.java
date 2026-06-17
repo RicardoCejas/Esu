@@ -8,8 +8,7 @@ import com.SaludUnificada.Esu.repositorio.TurnoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalDateTime; // Usar LocalDateTime para la fecha y hora
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -56,8 +55,8 @@ public class TurnoServicio implements ITurnoServicio {
     }
 
     @Override
-    public List<TurnoDtoResponse> filtrarTurnos(Long profesionalId, LocalDate fecha) {
-        return turnoRepositorio.findByProfesionalIdAndFecha(profesionalId, fecha).stream()
+    public List<TurnoDtoResponse> filtrarTurnos(Long profesionalId, LocalDateTime fechaHora) { // Corregido: Nombre y tipo de parámetro
+        return turnoRepositorio.findByProfesionalIdAndFechaHora(profesionalId, fechaHora).stream() // Corregido: Llamada al método del repositorio
                 .map(turnoMapper::paraDto)
                 .collect(Collectors.toList());
     }

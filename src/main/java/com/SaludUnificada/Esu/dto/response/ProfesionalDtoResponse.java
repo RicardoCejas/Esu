@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProfesionalResumenDto {
+public class ProfesionalDtoResponse { // Nombre de la clase actualizado
     private Long id;
     private String nombre;
     private String apellido;

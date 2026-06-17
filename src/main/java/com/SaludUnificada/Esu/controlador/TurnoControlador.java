@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime; // Importación necesaria para LocalDateTime
 import java.util.List;
 
 @RestController
@@ -58,8 +58,8 @@ public class TurnoControlador {
     @GetMapping("/filtrar")
     public ResponseEntity<List<TurnoDtoResponse>> filtrarTurnos(
             @RequestParam Long profesionalId,
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fecha) {
-        List<TurnoDtoResponse> turnos = turnoServicio.filtrarTurnos(profesionalId, fecha);
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fechaHora) { // Corregido: Tipo y formato
+        List<TurnoDtoResponse> turnos = turnoServicio.filtrarTurnos(profesionalId, fechaHora); // Corregido: Nombre del parámetro
         return new ResponseEntity<>(turnos, HttpStatus.OK);
     }
 

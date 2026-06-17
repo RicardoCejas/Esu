@@ -16,6 +16,6 @@ public class TurnoDtoResponse {
     private LocalDateTime fechaHora;
     private String estado;
     private String motivoTurno;
-    private PacienteResumenDto paciente;
-    private ProfesionalResumenDto profesional;
+    private PacienteDtoResponse paciente; // Corregido: Usar PacienteDtoResponse
+    private ProfesionalDtoResponse profesional; // Corregido: Usar ProfesionalDtoResponse
 }

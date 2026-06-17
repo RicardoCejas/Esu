@@ -1,7 +1,7 @@
 package com.SaludUnificada.Esu.controlador;
 
 import com.SaludUnificada.Esu.dto.request.ProfesionalDtoRequest;
-import com.SaludUnificada.Esu.dto.response.ProfesionalDtoResponse;
+import com.SaludUnificada.Esu.dto.response.ProfesionalDtoResponse; // Importación corregida
 import com.SaludUnificada.Esu.servicio.IProfesionalServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,13 +18,13 @@ public class ProfesionalControlador {
     private IProfesionalServicio profesionalServicio;
 
     @PostMapping("/crear")
-    public ResponseEntity<ProfesionalDtoResponse> crearProfesional(@RequestBody ProfesionalDtoRequest profesionalDto) {
+    public ResponseEntity<ProfesionalDtoResponse> crearProfesional(@RequestBody ProfesionalDtoRequest profesionalDto) { // Tipo de retorno corregido
         ProfesionalDtoResponse nuevoProfesional = profesionalServicio.crearProfesional(profesionalDto);
         return new ResponseEntity<>(nuevoProfesional, HttpStatus.CREATED);
     }
 
     @GetMapping("/obtener/{id}")
-    public ResponseEntity<ProfesionalDtoResponse> obtenerProfesionalPorId(@PathVariable Long id) {
+    public ResponseEntity<ProfesionalDtoResponse> obtenerProfesionalPorId(@PathVariable Long id) { // Tipo de retorno corregido
         try {
             ProfesionalDtoResponse profesional = profesionalServicio.obtenerProfesionalPorId(id);
             return new ResponseEntity<>(profesional, HttpStatus.OK);
@@ -34,7 +34,7 @@ public class ProfesionalControlador {
     }
 
     @GetMapping("/obtener/todos")
-    public ResponseEntity<List<ProfesionalDtoResponse>> listarTodos() {
+    public ResponseEntity<List<ProfesionalDtoResponse>> listarTodos() { // Tipo de retorno corregido
         List<ProfesionalDtoResponse> profesionales = profesionalServicio.listarTodos();
         return new ResponseEntity<>(profesionales, HttpStatus.OK);
     }
@@ -50,7 +50,7 @@ public class ProfesionalControlador {
     }
 
     @GetMapping("/filtrar/especialidad/{especialidadId}")
-    public ResponseEntity<List<ProfesionalDtoResponse>> filtrarPorEspecialidad(@PathVariable Long especialidadId) {
+    public ResponseEntity<List<ProfesionalDtoResponse>> filtrarPorEspecialidad(@PathVariable Long especialidadId) { // Tipo de retorno corregido
         List<ProfesionalDtoResponse> profesionales = profesionalServicio.filtrarPorEspecialidad(especialidadId);
         return new ResponseEntity<>(profesionales, HttpStatus.OK);
     }

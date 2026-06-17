@@ -1,7 +1,7 @@
 package com.SaludUnificada.Esu.servicio;
 
 import com.SaludUnificada.Esu.dto.request.ProfesionalDtoRequest;
-import com.SaludUnificada.Esu.dto.response.ProfesionalDtoResponse;
+import com.SaludUnificada.Esu.dto.response.ProfesionalDtoResponse; // Importación corregida
 import com.SaludUnificada.Esu.entidad.Profesional;
 import com.SaludUnificada.Esu.mapper.ProfesionalMapper;
 import com.SaludUnificada.Esu.repositorio.ProfesionalRepositorio;
@@ -21,7 +21,7 @@ public class ProfesionalServicio implements IProfesionalServicio {
     private ProfesionalMapper profesionalMapper;
 
     @Override
-    public ProfesionalDtoResponse crearProfesional(ProfesionalDtoRequest profesionalDto) {
+    public ProfesionalDtoResponse crearProfesional(ProfesionalDtoRequest profesionalDto) { // Tipo de retorno corregido
         if (profesionalDto.getMatricula() == null || profesionalDto.getMatricula().isBlank()) {
             throw new IllegalArgumentException("La matrícula del profesional es obligatoria");
         }
@@ -31,13 +31,13 @@ public class ProfesionalServicio implements IProfesionalServicio {
     }
 
     @Override
-    public ProfesionalDtoResponse obtenerProfesionalPorId(Long id) {
+    public ProfesionalDtoResponse obtenerProfesionalPorId(Long id) { // Tipo de retorno corregido
         Profesional profesional = obtenerEntidadProfesionalPorId(id);
         return profesionalMapper.paraDto(profesional);
     }
 
     @Override
-    public List<ProfesionalDtoResponse> listarTodos() {
+    public List<ProfesionalDtoResponse> listarTodos() { // Tipo de retorno corregido
         return profesionalRepositorio.findAll().stream()
                 .map(profesionalMapper::paraDto)
                 .collect(Collectors.toList());
@@ -53,8 +53,8 @@ public class ProfesionalServicio implements IProfesionalServicio {
     }
 
     @Override
-    public List<ProfesionalDtoResponse> filtrarPorEspecialidad(Long especialidadId) {
-        return profesionalRepositorio.findByEspecialidadId(especialidadId).stream()
+    public List<ProfesionalDtoResponse> filtrarPorEspecialidad(Long especialidadId) { // Tipo de retorno corregido
+        return profesionalRepositorio.findByEspecialidades_Id(especialidadId).stream() // Corregido: Usar findByEspecialidades_Id
                 .map(profesionalMapper::paraDto)
                 .collect(Collectors.toList());
     }

@@ -55,10 +55,12 @@ public class HistoriaClinicaServicio implements IHistoriaClinicaServicio {
     }
 
     @Override
-    public HistoriaClinicaDtoResponse buscarPorPacienteId(Long pacienteId) {
-        HistoriaClinica historiaClinica = historiaClinicaRepositorio.findByPacienteId(pacienteId)
-                .orElseThrow(() -> new RuntimeException("No se encontró historia clínica para el paciente con ID: " + pacienteId));
-        return historiaClinicaMapper.paraDto(historiaClinica);
+    public List<HistoriaClinicaDtoResponse> buscarPorPacienteId(Long pacienteId) { // Tipo de retorno corregido
+        List<HistoriaClinica> historiasClinicas = historiaClinicaRepositorio.findByPacienteId(pacienteId);
+        // Mapear la lista de entidades a una lista de DTOs
+        return historiasClinicas.stream()
+                .map(historiaClinicaMapper::paraDto)
+                .collect(Collectors.toList());
     }
 
     @Override

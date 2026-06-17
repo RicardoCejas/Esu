@@ -11,6 +11,6 @@ public interface IHistoriaClinicaServicio {
     HistoriaClinicaDtoResponse obtenerHistoriaClinicaPorId(Long id);
     List<HistoriaClinicaDtoResponse> listarTodas();
     void eliminarHistoriaClinica(Long id);
-    HistoriaClinicaDtoResponse buscarPorPacienteId(Long pacienteId);
+    List<HistoriaClinicaDtoResponse> buscarPorPacienteId(Long pacienteId); // Corregido: Ahora devuelve una lista
     List<HistoriaClinicaDtoResponse> buscarPorRangoFechas(LocalDateTime inicio, LocalDateTime fin);
 }
