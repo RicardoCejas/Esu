@@ -52,11 +52,11 @@ public class TurnoMapper {
         dto.setMotivoTurno(turno.getMotivoTurno());
 
         if (turno.getPaciente() != null) {
-            dto.setPaciente(pacienteMapper.paraResumenDto(turno.getPaciente()));
+            dto.setPaciente(pacienteMapper.paraDto(turno.getPaciente()));
         }
 
         if (turno.getProfesional() != null) {
-            dto.setProfesional(profesionalMapper.paraResumenDto(turno.getProfesional()));
+            dto.setProfesional(profesionalMapper.paraDto(turno.getProfesional()));
         }
 
         return dto;

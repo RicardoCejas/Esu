@@ -17,5 +17,6 @@ public class HistoriaClinicaDtoResponse {
     private String motivoConsulta;
     private String tratamiento;
     private LocalDateTime fechaAtencion;
-    private PacienteResumenDto paciente;
+    private PacienteDtoResponse paciente;
+    private ProfesionalDtoResponse profesional; // Agregado
 }

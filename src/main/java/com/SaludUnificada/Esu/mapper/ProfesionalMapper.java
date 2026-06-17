@@ -1,8 +1,7 @@
 package com.SaludUnificada.Esu.mapper;
 
 import com.SaludUnificada.Esu.dto.request.ProfesionalDtoRequest;
-import com.SaludUnificada.Esu.dto.response.ProfesionalDtoResponse;
-import com.SaludUnificada.Esu.dto.response.ProfesionalResumenDto;
+import com.SaludUnificada.Esu.dto.response.ProfesionalDtoResponse; // Importación corregida
 import com.SaludUnificada.Esu.entidad.Especialidad;
 import com.SaludUnificada.Esu.entidad.Profesional;
 import com.SaludUnificada.Esu.servicio.IEspecialidadServicio;
@@ -33,8 +32,8 @@ public class ProfesionalMapper {
         return profesional;
     }
 
-    public ProfesionalDtoResponse paraDto(Profesional profesional) {
-        ProfesionalDtoResponse dto = new ProfesionalDtoResponse();
+    public ProfesionalDtoResponse paraDto(Profesional profesional) { // Tipo de retorno corregido
+        ProfesionalDtoResponse dto = new ProfesionalDtoResponse(); // Instanciación corregida
         dto.setId(profesional.getId());
         dto.setNombre(profesional.getNombre());
         dto.setApellido(profesional.getApellido());
@@ -48,13 +47,5 @@ public class ProfesionalMapper {
 
         return dto;
     }
-
-    public ProfesionalResumenDto paraResumenDto(Profesional profesional) {
-        ProfesionalResumenDto dto = new ProfesionalResumenDto();
-        dto.setId(profesional.getId());
-        dto.setNombre(profesional.getNombre());
-        dto.setApellido(profesional.getApellido());
-        dto.setMatricula(profesional.getMatricula());
-        return dto;
-    }
+    // El método paraResumenDto ha sido eliminado por ser redundante.
 }
